@@ -1,13 +1,12 @@
-# Debian Bookworm pin kora holo jate package gulo thake
 FROM python:3.11-slim-bookworm
 
-# Install Chrome, Xvfb & required dependencies (bad dewa holo purono package gulo)
+# Added libgbm1, libxkbcommon0, libpango-1.0-0 for Chrome to render
 RUN apt-get update && apt-get install -y \
-    wget gnupg unzip xvfb libnss3 libxss1 libasound2 \
+    wget gnupg unzip xvfb \
+    libnss3 libxss1 libasound2 libgbm1 libxkbcommon0 libpango-1.0-0 libcairo2 \
     fonts-liberation libu2f-udev libvulkan1 libatk-bridge2.0-0 libatk1.0-0 libcups2 \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Google Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
     && echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list \
     && apt-get update \

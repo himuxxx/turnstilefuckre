@@ -1,0 +1,23 @@
+🚀 Render e Deploy korar dhap
+GitHub e repo push shesh hole render.com e login koro.
+
+Dashboard e New + e click koro -> Web Service select koro.
+
+Tomar oi GitHub repo ta connect koro.
+
+Form e ei jinish gulo set koro:
+
+Name: terabox-solver (ba ja mon chay)
+
+Region: Singapore (ba tomar kache jeta close)
+
+Branch: main
+
+Runtime: Docker (eta select kora khub important, Node/Python na)
+
+Instance Type: Free select korte paro (kintu free hole 15 min por ghumai jabe, tokhon prothom request e ektu time lagbe. Paid $7/mo dile 24/7 cholbe).
+
+Deploy Web Service e click koro.
+
+Render nijei build korbe (5-7 minute lagbe). Shesh hole upore ekta URL pabe, jemon:
+https://terabox-solver-xyz.onrender.com

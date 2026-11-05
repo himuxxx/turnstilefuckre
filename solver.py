@@ -62,10 +62,17 @@ def _start_xvfb_if_needed() -> Optional[subprocess.Popen]:
 
 
 async def _solve(sitekey: str, siteurl: str, timeout: int) -> str:
+    # Added --no-sandbox and --disable-dev-shm-usage for Docker/Render
     browser = await uc.start(
         browser_executable_path=_find_chrome(),
         headless=False,
         user_data_dir=_get_profile_dir(),
+        browser_args=[
+            "--no-sandbox",
+            "--disable-dev-shm-usage",
+            "--disable-gpu",
+            "--single-process"
+        ]
     )
 
     try:

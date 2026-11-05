@@ -1,9 +1,10 @@
-FROM python:3.11-slim
+# Debian Bookworm pin kora holo jate package gulo thake
+FROM python:3.11-slim-bookworm
 
-# Install Chrome, Xvfb & dependencies
+# Install Chrome, Xvfb & required dependencies (bad dewa holo purono package gulo)
 RUN apt-get update && apt-get install -y \
-    wget gnupg unzip xvfb libgconf-2-4 libnss3 libxss1 libasound2 \
-    fonts-liberation libappindicator3-1 libu2f-udev libvulkan1 \
+    wget gnupg unzip xvfb libnss3 libxss1 libasound2 \
+    fonts-liberation libu2f-udev libvulkan1 libatk-bridge2.0-0 libatk1.0-0 libcups2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Google Chrome
